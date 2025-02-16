@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    @vite(['resources/js/app.js', 'resources/css/styles.css'])
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Font Awesome -->
+   
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
    
 
 </head>
@@ -67,6 +68,7 @@
     </div>
 
     <script>
+         document.addEventListener("DOMContentLoaded", function() {
         function togglePassword() {
             let passwordField = document.getElementById("password");
             let eyeIcon = document.getElementById("eyeIcon");
@@ -100,6 +102,7 @@
         confirmButtonText: "Coba Lagi"
     });
 @endif
+});
     </script>
 
 </body>

@@ -225,6 +225,7 @@
 
     <!-- JavaScript Modal -->
     <script>
+        
         function previewImage(event) {
             var input = event.target;
             var file = input.files[0];
@@ -272,6 +273,7 @@
             document.getElementById('deleteForm').action = '/barang/' + id;
             openModal('deleteModal');
         }
+        document.addEventListener("DOMContentLoaded", function() {
         @if(session('success'))
             Swal.fire({
                 title: "Berhasil!",
@@ -291,6 +293,8 @@
                 confirmButtonText: "Coba Lagi"
             });
         @endif
+    
+    });
     </script>
 
 @endsection

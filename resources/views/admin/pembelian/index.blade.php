@@ -225,6 +225,7 @@
 
     <!-- JavaScript Modal -->
     <script>
+         
         let barangs = @json($barangs);
         let suppliers = @json($suppliers);
 
@@ -371,7 +372,7 @@
         function generateBarangOptions(selectedId) {
             let options = '';
             @foreach($barangs as $barang)
-                let isSelected = {{ $barang->id }} == selectedId ? 'selected' : '';
+                var isSelected = {{ $barang->id }} == selectedId ? 'selected' : '';
 
                 options += `<option value="{{ $barang->id }}" ${isSelected} data-harga="{{ $barang->harga }}">{{ $barang->nama_barang }}</option>`;
             @endforeach
@@ -397,26 +398,28 @@
                     `;
             container.innerHTML += newBarang;
         }
+        document.addEventListener("DOMContentLoaded", function() {
         @if(session('success'))
-    Swal.fire({
-        title: "Berhasil!",
-        text: "{{ session('success') }}",
-        icon: "success",
-        confirmButtonColor: "#3085d6",
-        confirmButtonText: "OK"
-    });
+            Swal.fire({
+                title: "Berhasil!",
+                text: "{{ session('success') }}",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "OK"
+            });
 
-@endif
-@if(session('error'))
-    Swal.fire({
-        title: "Gagal!",
-        text: "{{ session('error') }}",
-        icon: "error",
-        confirmButtonColor: "#d33",
-        confirmButtonText: "Coba Lagi"
+        @endif
+        @if(session('error'))
+            Swal.fire({
+                title: "Gagal!",
+                text: "{{ session('error') }}",
+                icon: "error",
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Coba Lagi"
+            });
+        @endif
+    
     });
-@endif
-
     </script>
 
 @endsection

@@ -20,7 +20,7 @@ class KasirDashboard extends Controller
         
       
         
-        return view('admin.dashboard.index', compact('jumlahBarang', 'totalBarangTerjual', 'jumlahMember'));
+        return view('kasir.dashboard.index', compact('jumlahBarang', 'totalBarangTerjual', 'jumlahMember'));
         
     }
 }

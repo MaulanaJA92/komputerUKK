@@ -222,6 +222,7 @@
 
     <!-- JavaScript Modal -->
     <script>
+         
         let barangs = @json($barangs);
         let suppliers = @json($members);
 
@@ -368,7 +369,7 @@
         function generateBarangOptions(selectedId) {
             let options = '';
             @foreach($barangs as $barang)
-                let isSelected = {{ $barang->id }} == selectedId ? 'selected' : '';
+                var isSelected = {{ $barang->id }} == selectedId ? 'selected' : '';
 
                 options += `<option value="{{ $barang->id }}" ${isSelected} data-harga="{{ $barang->harga }}">{{ $barang->nama_barang }}</option>`;
             @endforeach
@@ -394,6 +395,7 @@
                         `;
             container.innerHTML += newBarang;
         }
+        document.addEventListener("DOMContentLoaded", function() {
         @if(session('success'))
             Swal.fire({
                 title: "Berhasil!",
@@ -413,7 +415,8 @@
                 confirmButtonText: "Coba Lagi"
             });
         @endif
-
+    
+    });
     </script>
 
 @endsection

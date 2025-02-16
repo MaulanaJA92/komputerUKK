@@ -181,6 +181,7 @@
 
 <!-- JavaScript Modal -->
 <script>
+   
     function previewImage(event) {
         var input = event.target;
         var file = input.files[0];
@@ -228,25 +229,28 @@
         document.getElementById('deleteForm').action = '/member/' + id;
         openModal('deleteModal');
     }
-    @if(session('success'))
-    Swal.fire({
-        title: "Berhasil!",
-        text: "{{ session('success') }}",
-        icon: "success",
-        confirmButtonColor: "#3085d6",
-        confirmButtonText: "OK"
-    });
+    document.addEventListener("DOMContentLoaded", function() {
+        @if(session('success'))
+            Swal.fire({
+                title: "Berhasil!",
+                text: "{{ session('success') }}",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "OK"
+            });
 
-@endif
-@if(session('error'))
-    Swal.fire({
-        title: "Gagal!",
-        text: "{{ session('error') }}",
-        icon: "error",
-        confirmButtonColor: "#d33",
-        confirmButtonText: "Coba Lagi"
+        @endif
+        @if(session('error'))
+            Swal.fire({
+                title: "Gagal!",
+                text: "{{ session('error') }}",
+                icon: "error",
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Coba Lagi"
+            });
+        @endif
+    
     });
-@endif
 </script>
 
 @endsection

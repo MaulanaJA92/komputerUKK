@@ -86,6 +86,7 @@
    
     <!-- JavaScript Modal -->
     <script>
+        
         let barangs = @json($barangs);
 
         function openModal(id) {
@@ -126,26 +127,28 @@
         // Delete Modal
        
        
+        document.addEventListener("DOMContentLoaded", function() {
         @if(session('success'))
-    Swal.fire({
-        title: "Berhasil!",
-        text: "{{ session('success') }}",
-        icon: "success",
-        confirmButtonColor: "#3085d6",
-        confirmButtonText: "OK"
-    });
+            Swal.fire({
+                title: "Berhasil!",
+                text: "{{ session('success') }}",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "OK"
+            });
 
-@endif
-@if(session('error'))
-    Swal.fire({
-        title: "Gagal!",
-        text: "{{ session('error') }}",
-        icon: "error",
-        confirmButtonColor: "#d33",
-        confirmButtonText: "Coba Lagi"
+        @endif
+        @if(session('error'))
+            Swal.fire({
+                title: "Gagal!",
+                text: "{{ session('error') }}",
+                icon: "error",
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Coba Lagi"
+            });
+        @endif
+    
     });
-@endif
-
     </script>
 
 @endsection

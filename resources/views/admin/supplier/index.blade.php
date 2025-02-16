@@ -151,6 +151,7 @@
 
     <!-- JavaScript Modal -->
     <script>
+     
         function openModal(id) {
             document.getElementById(id).classList.remove('hidden');
         }
@@ -180,6 +181,28 @@
             document.getElementById('deleteForm').action = '/supplier/' + id;
             openModal('deleteModal');
         }
+        document.addEventListener("DOMContentLoaded", function() {
+        @if(session('success'))
+            Swal.fire({
+                title: "Berhasil!",
+                text: "{{ session('success') }}",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "OK"
+            });
+
+        @endif
+        @if(session('error'))
+            Swal.fire({
+                title: "Gagal!",
+                text: "{{ session('error') }}",
+                icon: "error",
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Coba Lagi"
+            });
+        @endif
+    
+    });
     </script>
 
 @endsection

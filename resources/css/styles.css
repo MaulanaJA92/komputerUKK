@@ -4,3 +4,6 @@ html, body {
   width: 100%;
   overflow-x: hidden; /* Hindari scroll horizontal */
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
