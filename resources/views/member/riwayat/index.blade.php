@@ -34,7 +34,7 @@
                     <th class="p-2 border">Tanggal</th>
                     <th class="p-2 border">Total</th>
                     <th class="p-2 border">Detail Barang</th>
-                    <th class="p-2 border">Aksi</th>
+                    <!-- <th class="p-2 border">Aksi</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +48,7 @@
                                 class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                                 Detail barang
                             </button></td>
-                        <td class="p-2 border">
+                        <!-- <td class="p-2 border">
                             <button onclick="openEditModal({{ $item->id }}, {{ $item }})"
                                 class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
                                 Edit
@@ -57,7 +57,7 @@
                                 class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
                                 Hapus
                             </button>
-                        </td>
+                        </td> -->
                     </tr>
                 @endforeach
             </tbody>

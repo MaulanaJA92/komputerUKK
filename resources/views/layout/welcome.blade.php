@@ -46,7 +46,7 @@
                 <i class="fas fa-user text-2xl mr-5"></i>
             </button>
             <div class="absolute right-0 mt-2 w-48 bg-white text-gray-900 shadow-lg hidden" id="userDropdown">
-                <a href="#" class="block px-4 py-2 hover:bg-gray-200">Profil</a>
+                <!-- <a href="#" class="block px-4 py-2 hover:bg-gray-200">Profil</a> -->
                 <hr>
                 <a href="{{ route('logout') }}" class="block px-4 py-2 hover:bg-gray-200">Logout</a>
             </div>

@@ -70,7 +70,7 @@ class PenjualanController
                     return redirect()->route('penjualan.index')->with('error', "Stok barang {$barang->nama} tidak mencukupi! Tersisa: {$barang->stok}");
                 }
         
-                $subtotal = $barang->harga * $request->jumlah[$key];
+                $subtotal = $barang->harga_jual * $request->jumlah[$key];
                 $totalHarga += $subtotal;
         
                 // ✅ Kurangi stok hanya jika stok cukup
@@ -132,7 +132,7 @@ class PenjualanController
             DB::beginTransaction(); // ✅ Mulai transaksi
         
             // Cari data penjualan berdasarkan ID
-
+         $k= 'NT'.time().'-'.mt_rand(1000,9999);
         
             // ✅ Kembalikan stok barang sebelum menghapus detail lama
             $detailLama = PenjualanDetail::where('id_penjualan', $penjualan->id)->get();
@@ -166,7 +166,7 @@ class PenjualanController
                     return redirect()->route('penjualan.index')->with('error', "Stok barang {$barang->nama} tidak mencukupi! Tersisa: {$barang->stok}");
                 }
         
-                $subtotal = $barang->harga * $request->jumlah[$key];
+                $subtotal = $barang->harga_jual * $request->jumlah[$key];
                 $totalHarga += $subtotal;
         
                 // ✅ Kurangi stok setelah dicek

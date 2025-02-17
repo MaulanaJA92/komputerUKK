@@ -41,6 +41,8 @@
                     <th class="p-2 border">detail</th>
                     <th class="p-2 border">berat</th>
                     <th class="p-2 border">harga</th>
+                    <th class="p-2 border">harga jual</th>
+                    <th class="p-2 border">warna</th>
                     <th class="p-2 border">foto</th>
                     <th class="p-2 border">stok</th>
                     @if (auth()->user()->role == 'admin')
@@ -56,6 +58,8 @@
                         <td class="p-2 border">{{ $item->detail_barang }}</td>
                         <td class="p-2 border">{{ $item->berat }}</td>
                         <td class="p-2 border">{{ $item->harga }}</td>
+                        <td class="p-2 border">{{ $item->harga_jual }}</td>
+                        <td class="p-2 border">{{ $item->warna }}</td>
                         <td class="p-2 border"><img src="{{ asset('image/' . $item->foto) }}" alt="Foto Barang"
                                 class="w-20 h-20 object-cover"></td>
                         <td class="p-2 border">{{ $item->stok }}</td>

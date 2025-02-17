@@ -125,7 +125,7 @@
                             <select name="barang_id[]" class="w-1/2 p-2 border rounded">
                                 <option value="" disabled selected>Pilih Barang</option>
                                 @foreach($barangs as $barang)
-                                    <option value="{{ $barang->id }}" data-harga="{{ $barang->harga }}">
+                                    <option value="{{ $barang->id }}" data-harga="{{ $barang->harga_jual }}">
                                         {{ $barang->nama_barang }}
                                     </option>
                                 @endforeach
@@ -280,7 +280,7 @@
                                 <select name="barang_id[]" class="w-1/2 p-2 border rounded" ">
                                     <option value="" disabled selected>Pilih Barang</option>
                                     @foreach($barangs as $barang)
-                                        <option value="{{ $barang->id }}" data-harga="{{ $barang->harga }}">{{ $barang->nama_barang }}</option>
+                                        <option value="{{ $barang->id }}" data-harga="{{ $barang->harga_jual }}">{{ $barang->nama_barang }}</option>
                                     @endforeach
                                 </select>
                                 <input type="number" name="jumlah[]" placeholder="Jumlah" class="w-1/4 p-2 border rounded" oninput="hitungSubtotal(this)">
@@ -371,7 +371,7 @@
             @foreach($barangs as $barang)
                 var isSelected = {{ $barang->id }} == selectedId ? 'selected' : '';
 
-                options += `<option value="{{ $barang->id }}" ${isSelected} data-harga="{{ $barang->harga }}">{{ $barang->nama_barang }}</option>`;
+                options += `<option value="{{ $barang->id }}" ${isSelected} data-harga="{{ $barang->harga_jual }}">{{ $barang->nama_barang }}</option>`;
             @endforeach
             return options;
         }
@@ -385,7 +385,7 @@
                                 ">
                                     <option value="" disabled selected>Pilih Barang</option>
                                     @foreach($barangs as $barang)
-                                         <option value="{{ $barang->id }}" data-harga="{{ $barang->harga }}">{{ $barang->nama_barang }}</option>
+                                         <option value="{{ $barang->id }}" data-harga="{{ $barang->harga_jual }}">{{ $barang->nama_barang }}</option>
                                     @endforeach
                                 </select>
                                 <input type="number" name="jumlah[]" placeholder="Jumlah" class="w-1/4 p-2 border rounded" oninput="hitungSubtotalEdit(this)">
