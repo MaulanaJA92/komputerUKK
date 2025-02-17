@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 
@@ -80,6 +81,12 @@ class KategoriController
      */
     public function destroy(Kategori $kategori)
 {
+    $id=$kategori->id;
+        $terkait = Barang::where('id_kategori', $id)->exists();
+
+if ($terkait) {
+ return redirect()->route('kategori.index')->with('error', 'Kategori tidak bisa dihapus karena memiliki relasi.');
+}
     $kategori->delete();
     return redirect()->route('kategori.index')->with('success', 'Kategori berhasil dihapus!');
 }

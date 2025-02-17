@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
+use App\Models\Pembelian;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 
@@ -29,7 +31,7 @@ class SupplierController
      */
     public function store(Request $request)
     {
-        
+
         $credentials = $request->validate([
             'nama_supplier' => 'required',
             'alamat' => 'required',
@@ -39,11 +41,11 @@ class SupplierController
             'alamat.required' => 'Alamat Supplier harus diisi',
             'no_telp.required' => 'No telepon Supplier harus diisi',
         ]);
-   
+
         Supplier::create($credentials);
 
         return redirect()->route('supplier.index')->with('success', 'Supplier berhasil ditambahkan!');
-    
+
     }
 
     /**
@@ -65,7 +67,7 @@ class SupplierController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,Supplier $supplier)
+    public function update(Request $request, Supplier $supplier)
     {
         $credentials = $request->validate([
             'nama_supplier' => 'required',
@@ -76,11 +78,11 @@ class SupplierController
             'alamat.required' => 'Alamat Supplier harus diisi',
             'no_telp.required' => 'No telepon Supplier harus diisi',
         ]);
-    
+
         $supplier->update($credentials);
 
         return redirect()->route('supplier.index')->with('success', 'Supplier berhasil ditambahkan!');
-    
+
     }
 
     /**
@@ -88,8 +90,14 @@ class SupplierController
      */
     public function destroy(Supplier $supplier)
     {
+        $id = $supplier->id;
+        $terkait = Pembelian::where('id_supplier', $id)->exists();
+
+        if ($terkait) {
+            return redirect()->route('supplier.index')->with('error', 'Supplier tidak bisa dihapus karena memiliki relasi.');
+        }
         $supplier->delete();
         return redirect()->route('supplier.index')->with('success', 'Supplier berhasil dihapus!');
     }
-   
+
 }

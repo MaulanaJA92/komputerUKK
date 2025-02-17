@@ -21,6 +21,7 @@ class Riwayat extends Controller
     $barangs = Barang::all();
 
     // Ambil semua data penjualan dengan relasi member dan details
+    
     $penjualan = Penjualan::with(['member', 'details'])->get();
 
     return view('member.riwayat.index', compact('penjualan', 'member', 'barangs'));

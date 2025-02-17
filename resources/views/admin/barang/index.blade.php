@@ -66,7 +66,7 @@
                         @if (auth()->user()->role == 'admin')
                             <td class="p-2 border">
                                 <button
-                                    onclick="openEditModal({{ $item->id }},'{{ $item->kategori->id }}', '{{ $item->nama_barang }}','{{ $item->detail_barang }}','{{ $item->berat }}','{{ $item->harga }}','{{ $item->harga_jual }}')"
+                                    onclick="openEditModal({{ $item->id }},'{{ $item->kategori->id }}', '{{ $item->nama_barang }}','{{ $item->detail_barang }}','{{ $item->berat }}','{{ $item->harga }}','{{ $item->harga_jual }}','{{ $item->warna }}')"
                                     class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
                                     Edit
                                 </button>
@@ -103,6 +103,11 @@
                 <div class="mb-3">
                     <label for="nama_barang" class="block text-sm font-medium text-gray-700">Nama Barang</label>
                     <input type="text" id="nama_barang" name="nama_barang" placeholder="Masukkan Nama Barang"
+                        class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-3">
+                    <label for="warna" class="block text-sm font-medium text-gray-700">Warna Barang</label>
+                    <input type="text" id="warna" name="warna" placeholder="Masukkan Warna Barang"
                         class="w-full p-2 border rounded" required>
                 </div>
 
@@ -171,6 +176,12 @@
                     <input type="text" id="nama_barang_edit" name="nama_barang" placeholder="Masukkan Nama Barang"
                         class="w-full p-2 border rounded" required>
                 </div>
+                <div class="mb-3">
+                    <label for="warna_edit" class="block text-sm font-medium text-gray-700">Warna Barang</label>
+                    <input type="text" id="warna_edit" name="warna" placeholder="Masukkan Warna Barang"
+                        class="w-full p-2 border rounded" required>
+                </div>
+
 
                 <div class="mb-3">
                     <label for="detail_barang" class="block text-sm font-medium text-gray-700">Detail Barang</label>
@@ -261,9 +272,10 @@
         }
 
         // Edit Modal
-        function openEditModal(id, id_kategori, nama_barang, detail_barang, berat, harga) {
+        function openEditModal(id, id_kategori, nama_barang, detail_barang, berat, harga,harga_jual,warna) {
             document.getElementById('id_kategori_edit').value = id_kategori;
             document.getElementById('nama_barang_edit').value = nama_barang;
+            document.getElementById('warna_edit').value = warna;
             document.getElementById('detail_barang_edit').value = detail_barang;
             document.getElementById('berat_edit').value = berat;
             document.getElementById('harga_edit').value = harga;

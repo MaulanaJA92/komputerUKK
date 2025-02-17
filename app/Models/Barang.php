@@ -13,6 +13,7 @@ class Barang extends Model
         'harga_jual',
         'detail_barang',
         'berat',
+        'warna',
         'foto',
     ];
     public function kategori()

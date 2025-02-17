@@ -40,9 +40,10 @@ class BarangController
         $credentials = $request->validate([
             'id_kategori' => 'required',
             'nama_barang' => 'required',
+            'warna' => 'required',
             'detail_barang' => 'required',
             'berat' => 'required|numeric', 
-            'harga' => 'required|numeric',
+            'harga' => 'required|numeric', 
             'harga_jual' => 'required|numeric',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
            
@@ -104,6 +105,7 @@ class BarangController
         $credentials = $request->validate([
             'id_kategori' => 'required',
             'nama_barang' => 'required',
+            'warna' => 'required',
             'detail_barang' => 'required',
             'berat' => 'required|numeric', 
             'harga' => 'required|numeric',
